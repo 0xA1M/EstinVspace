@@ -1,0 +1,47 @@
+/* Regular Weight */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Medium Weight */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Bold Weight */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Bolder Weight */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Black.ttf") format("ttf");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+/* Light Weight */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light.ttf") format("ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Thin Weight */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Thin.ttf") format("ttf");
+  font-weight: 100;
+  font-style: normal;
+}
