@@ -1,6 +1,7 @@
 # EstinVspace
 
 ![Light Theme Logo](src/assets/images/logo.svg) 
+
 ![Dark Theme Logo](src/assets/images/logo-light.svg)
 
 ## Table of Contents
