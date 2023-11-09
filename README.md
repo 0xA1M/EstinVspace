@@ -1,6 +1,6 @@
 # EstinVspace
 
-![Project Logo/Icon]("./src/assets/images/logo.svg") <!-- Add the logo -->
+![Project Logo/Icon]("src/assets/images/logo.svg") <!-- Add the logo -->
 
 ## Table of Contents
 
