@@ -1,0 +1,66 @@
+<svg width="79" height="58" viewBox="0 0 79 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_d_710_69)">
+    <path d="M5.48669 7.29052L19.5842 7.25336" stroke="#ED1C24" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <path d="M19.5841 16.3437H6.36194V28.3893H19.5841" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M35.2575 7.29077H30.0169C30.0169 7.29077 24.7764 7.29077 24.7764 12.5654C24.7764 17.2172 30.0169 17.84 30.0169 17.84C30.0169 17.84 35.2575 18.9118 35.2575 23.1147C35.2575 28.3893 30.0169 28.3893 30.0169 28.3893H24.7764" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <path d="M49.2323 28.3893H44.8652C40.498 28.3893 40.498 23.1147 40.498 23.1147V7.29077" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <path d="M46.9651 12.5654H40.498" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <path d="M55.4689 28.3893V12.5654" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <ellipse cx="55.4689" cy="7.29078" rx="1.48668" ry="1.49635" fill="white"/>
+    <mask id="mask0_710_69" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="58" y="3" width="4" height="9">
+      <path d="M61.267 3H58.6169V11.5797H61.267V3Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0_710_69)">
+      <path d="M59.1744 3.56116C59.1744 3.56116 60.7094 4.82183 60.7094 7.29081C60.7094 9.75978 59.1744 11.0205 59.1744 11.0205" stroke="white" stroke-miterlimit="10" stroke-linecap="round"/>
+    </g>
+    <mask id="mask1_710_69" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="49" y="3" width="4" height="9">
+      <path d="M52.3208 3H49.6708V11.5797H52.3208V3Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask1_710_69)">
+      <path d="M51.7633 3.56116C51.7633 3.56116 50.2283 4.82183 50.2283 7.29081C50.2283 9.75978 51.7633 11.0205 51.7633 11.0205" stroke="white" stroke-miterlimit="10" stroke-linecap="round"/>
+    </g>
+    <mask id="mask2_710_69" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="57" y="4" width="3" height="6">
+      <path d="M59.0258 4.59546H57.0318V9.98606H59.0258V4.59546Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask2_710_69)">
+      <path d="M57.5893 5.15662C57.5893 5.15662 58.4683 5.8786 58.4683 7.29078C58.4683 8.70296 57.5893 9.42495 57.5893 9.42495" stroke="white" stroke-miterlimit="10" stroke-linecap="round"/>
+    </g>
+    <mask id="mask3_710_69" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="51" y="4" width="3" height="6">
+      <path d="M53.9079 4.59546H51.9139V9.98606H53.9079V4.59546Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask3_710_69)">
+      <path d="M53.3485 5.15662C53.3485 5.15662 52.4695 5.8786 52.4695 7.29078C52.4695 8.70296 53.3485 9.42495 53.3485 9.42495" stroke="white" stroke-miterlimit="10" stroke-linecap="round"/>
+    </g>
+    <path d="M63.9746 28.2285V7.12994L74.3665 28.2285V7.12994" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16.9639 37.2103H11.7233C11.7233 37.2103 6.48279 37.2103 6.48279 41.2841C6.48279 44.8753 11.7233 45.3579 11.7233 45.3579C11.7233 45.3579 16.9639 46.1865 16.9639 49.4317C16.9639 53.5055 11.7233 53.5055 11.7233 53.5055H6.48279" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <path d="M22.1041 45.4701V40.9436C22.1041 38.5009 24.1278 36.492 26.5883 36.492C29.0487 36.492 31.0706 38.4859 31.0706 40.9436C31.0706 43.4014 29.0469 45.3953 26.5883 45.3953L22.1041 45.4701Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22.1041 53.5036V45.4701" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58.7173 40.6631C58.7173 37.4085 56.4984 36.492 53.7611 36.492C51.0237 36.492 48.8049 39.1293 48.8049 42.3839V47.4341C48.8049 50.6886 51.0237 53.3259 53.7611 53.3259C56.4984 53.3259 58.7173 51.5303 58.7173 48.2758" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+    <path d="M74.0915 37.0251L63.7665 37.0531V44.7388" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M74.0915 44.9108H63.7665V53.3278H74.0915" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <mask id="mask4_710_69" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="4" y="31" width="37" height="24">
+      <path d="M40.4981 31.7018H4.99609V54.9906H40.4981V31.7018Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask4_710_69)">
+      <path d="M6.48279 33.1982H33.1947L41.0277 53.4943" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <mask id="mask5_710_69" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="40" y="31" width="36" height="24">
+      <path d="M76 31.7018H40.498V54.9906H76V31.7018Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask5_710_69)">
+      <path d="M74.5134 33.1982H47.8014L39.9684 53.4943" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M35.2575 38.4579H44.8652" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <filter id="filter0_d_710_69" x="0.986694" y="0" width="78.0133" height="58.0055" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="1.5"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_710_69"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_710_69" result="shape"/>
+    </filter>
+  </defs>
+</svg>

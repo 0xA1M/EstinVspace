@@ -22,6 +22,7 @@ ol {
 }
 
 a {
+  color: #111111;
   text-decoration: none;
 }
 
@@ -32,18 +33,11 @@ textarea {
 }
 
 /* Main Styles */
-body {
-  height: 100vh;
-}
-
-#root {
-  width: 100%;
-  height: 100%;
-}
-
-main {
-  width: 100%;
-  height: 100%;
+header,
+main,
+section,
+footer {
+  transition: all 0.2s linear;
 }
 
 /* Styled Classes */
@@ -53,5 +47,6 @@ main {
 }
 
 .hidden {
-  display: flex;
+  display: none;
+  width: 0;
 }
