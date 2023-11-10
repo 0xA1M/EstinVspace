@@ -37,6 +37,7 @@ header,
 main,
 section,
 footer {
+  width: 100%;
   transition: all 0.2s linear;
 }
 
@@ -44,9 +45,4 @@ footer {
 .dark {
   background-color: #111111;
   color: #eeeeee;
-}
-
-.hidden {
-  display: none;
-  width: 0;
 }

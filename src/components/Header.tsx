@@ -14,9 +14,12 @@ interface Params {
 
 function Header({ isDark, setIsDark }: Params) {
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<string>("home");
+  const [activeBurger, setActiveBurger] = useState<boolean>(false);
   const searchBarRef = useRef<HTMLLIElement>(null);
   const searchBarInputRef = useRef<HTMLInputElement>(null);
+  const navListRef = useRef<HTMLUListElement>(null);
+  const burgerRef = useRef<HTMLDivElement>(null);
 
   const toggleDarkMode = (): void => {
     setIsDark((prevState: boolean) => !prevState);
@@ -31,6 +34,7 @@ function Header({ isDark, setIsDark }: Params) {
 
     const toggleSearchBar = (): void => {
       searchBarRef.current?.classList.toggle("active");
+      navListRef.current?.classList.toggle("left");
 
       if (searchBarRef.current?.classList.contains("active")) {
         searchBarInputRef.current?.focus();
@@ -48,11 +52,7 @@ function Header({ isDark, setIsDark }: Params) {
         }
       } else {
         searchBarRef.current?.classList.remove("active");
-
-        // Remove SearchBar Input value
-        /* if (searchBarInputRef.current) {
-          searchBarInputRef.current.value = "";
-        } */
+        navListRef.current?.classList.remove("left");
       }
     };
 
@@ -65,6 +65,18 @@ function Header({ isDark, setIsDark }: Params) {
     };
   }, [showSearchBar]);
 
+  useEffect(() => {
+    const clickHandler = (event: MouseEvent): void => {
+      if (burgerRef.current?.contains(event.target as HTMLElement)) {
+        burgerRef.current?.classList.toggle("active");
+      } else {
+        burgerRef.current?.classList.remove("active");
+      }
+    };
+
+    document.addEventListener("click", clickHandler);
+  }, [activeBurger]);
+
   return (
     <header className={isDark ? "dark" : ""}>
       <img
@@ -74,26 +86,48 @@ function Header({ isDark, setIsDark }: Params) {
       />
 
       <nav className="main-nav">
-        <ul className="nav-item-list">
+        <ul className="nav-item-list" ref={navListRef}>
           <li
             className={`nav-item item-0 ${
               selectedItem === "home" ? "active-link" : ""
             }`}
             onClick={() => highlighter("home")}
           >
-            <NavLink className="nav-link" to="." end>
+            <NavLink
+              className={`nav-link ${isDark ? "dark-link" : ""}`}
+              to="."
+              end
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={!isDark ? "#111111" : "#eeeeee"}
                 className="icon"
               >
+                <defs>
+                  <linearGradient
+                    id="myGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" style={{ stopColor: "#1ecdf4" }} />
+                    <stop offset="100%" style={{ stopColor: "#ba06f9cf" }} />
+                  </linearGradient>
+                </defs>
+
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  style={{
+                    stroke:
+                      selectedItem === "home"
+                        ? "url(#myGradient)"
+                        : "currentColor",
+                  }}
                 />
               </svg>
               <p>Home</p>
@@ -111,13 +145,31 @@ function Header({ isDark, setIsDark }: Params) {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={!isDark ? "#111111" : "#eeeeee"}
                 className="icon"
               >
+                <defs>
+                  <linearGradient
+                    id="myGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" style={{ stopColor: "#1ecdf4" }} />
+                    <stop offset="100%" style={{ stopColor: "#ba06f9cf" }} />
+                  </linearGradient>
+                </defs>
+
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
+                  style={{
+                    stroke:
+                      selectedItem === "academics"
+                        ? "url(#myGradient)"
+                        : "currentColor",
+                  }}
                 />
               </svg>
               <p>Academics</p>
@@ -134,16 +186,46 @@ function Header({ isDark, setIsDark }: Params) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke={!isDark ? "#111111" : "#eeeeee"}
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="icon"
               >
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                <defs>
+                  <linearGradient
+                    id="myGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" style={{ stopColor: "#1ecdf4" }} />
+                    <stop offset="100%" style={{ stopColor: "#ba06f9cf" }} />
+                  </linearGradient>
+                </defs>
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  style={{
+                    stroke:
+                      selectedItem === "selfdev"
+                        ? "url(#myGradient)"
+                        : "currentColor",
+                  }}
+                ></circle>
+                <polygon
+                  points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
+                  style={{
+                    stroke:
+                      selectedItem === "selfdev"
+                        ? "url(#myGradient)"
+                        : "currentColor",
+                  }}
+                ></polygon>
               </svg>
-              <p> Self Dev</p>
+              <p>Self Dev</p>
             </NavLink>
           </li>
           <li
@@ -158,13 +240,31 @@ function Header({ isDark, setIsDark }: Params) {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={!isDark ? "#111111" : "#eeeeee"}
                 className="icon"
               >
+                <defs>
+                  <linearGradient
+                    id="myGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" style={{ stopColor: "#1ecdf4" }} />
+                    <stop offset="100%" style={{ stopColor: "#ba06f9cf" }} />
+                  </linearGradient>
+                </defs>
+
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                  style={{
+                    stroke:
+                      selectedItem === "playground"
+                        ? "url(#myGradient)"
+                        : "currentColor",
+                  }}
                 />
               </svg>
               <p>Playground</p>
@@ -182,13 +282,31 @@ function Header({ isDark, setIsDark }: Params) {
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke={!isDark ? "#111111" : "#eeeeee"}
                 className="icon"
               >
+                <defs>
+                  <linearGradient
+                    id="myGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" style={{ stopColor: "#1ecdf4" }} />
+                    <stop offset="100%" style={{ stopColor: "#ba06f9cf" }} />
+                  </linearGradient>
+                </defs>
+
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                  style={{
+                    stroke:
+                      selectedItem === "about"
+                        ? "url(#myGradient)"
+                        : "currentColor",
+                  }}
                 />
               </svg>
 
@@ -243,7 +361,7 @@ function Header({ isDark, setIsDark }: Params) {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke="#f1c40f"
+            stroke="currentColor"
             className="icon"
           >
             <path
@@ -258,7 +376,7 @@ function Header({ isDark, setIsDark }: Params) {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke="#f39c12"
+            stroke="currentColor"
             className="icon"
           >
             <path
@@ -270,6 +388,16 @@ function Header({ isDark, setIsDark }: Params) {
 
           <span className={`ball ${!isDark ? "dark" : ""}`}></span>
         </label>
+      </div>
+
+      <div
+        className="burger-menu"
+        onClick={() => setActiveBurger((prevState) => !prevState)}
+        ref={burgerRef}
+      >
+        <div className="meat"></div>
+        <div className="meat"></div>
+        <div className="meat"></div>
       </div>
     </header>
   );
