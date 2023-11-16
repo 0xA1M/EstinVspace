@@ -4,13 +4,15 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Layout() {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(
+    JSON.parse(localStorage.getItem("theme") || "false")
+  );
 
   return (
     <>
       <Header isDark={isDark} setIsDark={setIsDark} />
       <main className={isDark ? "dark" : ""}>
-        <Outlet />
+        <Outlet context={isDark} />
       </main>
       <Footer isDark={isDark} />
     </>

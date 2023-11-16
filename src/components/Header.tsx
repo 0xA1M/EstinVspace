@@ -1,9 +1,9 @@
 /* Dependencies Imports */
 import { useEffect, useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 /* Assets Imports */
-import "../assets/styles/header.css";
+import "../assets/styles/components/header.css";
 import Logo from "../assets/images/logo.svg";
 import LogoLight from "../assets/images/logo-light.svg";
 
@@ -14,12 +14,15 @@ interface Params {
 
 function Header({ isDark, setIsDark }: Params) {
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<string>("home");
+  const [selectedItem, setSelectedItem] = useState<string>("/");
   const [activeBurger, setActiveBurger] = useState<boolean>(false);
+  const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
+  const [visible, setVisible] = useState<boolean>(true);
   const searchBarRef = useRef<HTMLLIElement>(null);
   const searchBarInputRef = useRef<HTMLInputElement>(null);
   const navListRef = useRef<HTMLUListElement>(null);
   const burgerRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const toggleDarkMode = (): void => {
     setIsDark((prevState: boolean) => !prevState);
@@ -30,8 +33,6 @@ function Header({ isDark, setIsDark }: Params) {
   };
 
   useEffect(() => {
-    let timeOut1: number, timeOut2: number;
-
     const toggleSearchBar = (): void => {
       searchBarRef.current?.classList.toggle("active");
       navListRef.current?.classList.toggle("left");
@@ -60,8 +61,6 @@ function Header({ isDark, setIsDark }: Params) {
 
     return () => {
       document.removeEventListener("click", clickHandler);
-      clearTimeout(timeOut1);
-      clearTimeout(timeOut2);
     };
   }, [showSearchBar]);
 
@@ -75,23 +74,58 @@ function Header({ isDark, setIsDark }: Params) {
     };
 
     document.addEventListener("click", clickHandler);
+
+    return () => {
+      document.removeEventListener("click", clickHandler);
+    };
   }, [activeBurger]);
 
+  useEffect(() => {
+    if (location.pathname[1]) {
+      const path: string[] = location.pathname.split("/");
+      highlighter(path[1]);
+    } else {
+      highlighter(location.pathname);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(isDark));
+  }, [isDark]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos === 0);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
+
   return (
-    <header className={isDark ? "dark" : ""}>
+    <header
+      className={`${isDark ? "dark" : ""} ${visible ? "sticky" : "hidden"}`}
+    >
       <img
         src={!isDark ? Logo : LogoLight}
         alt="EstinVspace"
         className="logo"
+        loading="lazy"
       />
 
       <nav className="main-nav">
         <ul className="nav-item-list" ref={navListRef}>
           <li
             className={`nav-item item-0 ${
-              selectedItem === "home" ? "active-link" : ""
+              selectedItem === "/" ? "active-link" : ""
             }`}
-            onClick={() => highlighter("home")}
+            onClick={() => highlighter("/")}
           >
             <NavLink
               className={`nav-link ${isDark ? "dark-link" : ""}`}
@@ -124,7 +158,7 @@ function Header({ isDark, setIsDark }: Params) {
                   d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
                   style={{
                     stroke:
-                      selectedItem === "home"
+                      selectedItem === "/"
                         ? "url(#myGradient)"
                         : "currentColor",
                   }}
@@ -186,9 +220,9 @@ function Header({ isDark, setIsDark }: Params) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="icon"
               >
                 <defs>
@@ -276,7 +310,7 @@ function Header({ isDark, setIsDark }: Params) {
             }`}
             onClick={() => highlighter("about")}
           >
-            <NavLink className="nav-link" to="/about">
+            <NavLink className="nav-link" to="about">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -350,6 +384,7 @@ function Header({ isDark, setIsDark }: Params) {
           id="toggleDark"
           className="toggle-dark"
           onChange={toggleDarkMode}
+          defaultChecked={JSON.parse(localStorage.getItem("theme") || "false")}
         />
 
         <label
@@ -386,7 +421,7 @@ function Header({ isDark, setIsDark }: Params) {
             />
           </svg>
 
-          <span className={`ball ${!isDark ? "dark" : ""}`}></span>
+          <span className={`ball ${isDark ? "" : "dark"} `}></span>
         </label>
       </div>
 
