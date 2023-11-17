@@ -1,0 +1,75 @@
+/* Resets */
+@import url("./fonts.css");
+
+:root {
+  --main-light-color: #fff;
+  --main-dark-color: #111;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  font-style: normal;
+  height: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--main-dark-color);
+  text-decoration: none;
+}
+
+input,
+button,
+textarea {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Styles */
+header,
+main,
+section,
+footer {
+  width: 100%;
+  transition: all 0.2s linear;
+}
+
+main {
+  overflow: hidden;
+  min-height: 100%;
+  margin-top: 4.721%;
+}
+
+/* Styled Classes */
+.dark {
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
+}
