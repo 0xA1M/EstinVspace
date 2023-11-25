@@ -1,0 +1,95 @@
+/* Hero Section */
+.hero {
+  background-color: #4d94ff;
+  position: relative;
+  height: fit-content;
+}
+
+[data-theme="dark"] .hero {
+  background-color: #002855;
+}
+
+/* Title */
+.title {
+  font-size: 343.75% /* 3.4375rem */;
+  font-weight: 700;
+  line-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3%;
+  color: #292d33;
+}
+
+[data-theme="dark"] .title {
+  color: var(--main-light-color);
+}
+
+.titleLogo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.5%;
+}
+
+.blueText {
+  color: #1a29ff;
+}
+
+[data-theme="dark"] .blueText {
+  color: #00e8f0;
+}
+
+.titleQuote {
+  text-align: center;
+}
+
+/* Subtitle */
+.subTitle {
+  color: #292d33;
+  text-align: center;
+  font-size: 200%;
+  font-weight: 500;
+  line-height: 120%;
+  padding: 0 11%;
+  position: absolute;
+  top: 41%;
+}
+
+[data-theme="dark"] .subTitle {
+  color: var(--main-light-color);
+}
+
+/* Rocket Icon */
+.rocketContainer {
+  position: absolute;
+  top: 15%;
+  right: -15%;
+  animation: fly 1s 1s forwards ease-in-out;
+}
+
+.rocketFire {
+  position: absolute;
+  top: 38%;
+  right: 3%;
+  transform: rotate(-4deg);
+}
+
+/* Wave Icon */
+.blueWave {
+  font-size: 100%;
+  position: relative;
+  bottom: -0.2em;
+}
+
+/* Animations */
+@keyframes fly {
+  to {
+    top: 5%;
+    right: 5%;
+  }
+}

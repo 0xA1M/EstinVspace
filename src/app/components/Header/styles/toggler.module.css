@@ -1,0 +1,49 @@
+/* Dark Mode Toggler */
+.toggler {
+  margin-right: 0.246%;
+  margin-left: -9.3%;
+  font-size: 100%;
+}
+
+.toggleDark {
+  opacity: 0;
+  position: absolute;
+}
+
+.toggleLabel {
+  background-color: var(--main-light-color);
+  width: 3.125em; /* 50px */
+  height: 1.625em; /* 26px */
+  border-radius: 5em;
+  position: relative;
+  padding: 0.3125em; /* 5px */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--main-dark-color);
+}
+
+.toggleLabel.dark {
+  border: 1px solid var(--main-light-color);
+  background-color: var(--main-dark-color);
+}
+
+.ball {
+  background-color: var(--main-light-color);
+  width: 1.375em; /* 22px */
+  height: 1.375em; /* 22px */
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+}
+
+.ball.dark {
+  background-color: var(--main-dark-color);
+}
+
+.checked .ball {
+  transform: translateX(110%);
+}

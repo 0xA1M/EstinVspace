@@ -1,0 +1,88 @@
+/* Resets */
+:root {
+  --main-light-color: #fff;
+  --main-dark-color: #111;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--main-dark-color);
+  text-decoration: none;
+}
+
+input,
+button,
+textarea {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Styles */
+header,
+footer {
+  width: 100%;
+  transition: all 0.2s linear;
+}
+
+main {
+  width: 100%;
+  overflow: hidden;
+  min-height: 100%;
+  margin-top: 4.721%;
+  transition: all 0.2s linear;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  transition: all 0.2s linear;
+}
+
+/* Styled Classes */
+.icon {
+  width: 130%;
+  height: 130%;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
+}
+
+[data-theme="dark"] header {
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
+}
