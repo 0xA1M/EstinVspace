@@ -34,3 +34,11 @@ function RootLayout({ children }: Params) {
 }
 
 export default RootLayout;
+
+/* TODOS
+    - Add the final touches to the home page
+    - Finish the playground
+    - Find Better names for the playground buttons
+    - Optimize The Code
+    - SEO
+*/

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 /* Assets */
 import LogoDark from "@/images/logo.svg";
 import LogoLight from "@/images/logo-light.svg";
+import styles from "./styles/logo.module.css";
 
 /* Render the Logo */
 function Logo() {
@@ -15,11 +16,6 @@ function Logo() {
     "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
   );
   const { resolvedTheme } = useTheme();
-  const styles = {
-    width: "5.7%",
-    height: "auto",
-    marginRight: "9.5%",
-  };
 
   useEffect(() => {
     switch (resolvedTheme) {
@@ -33,7 +29,13 @@ function Logo() {
   }, [resolvedTheme]);
 
   return (
-    <Image src={src} alt="EstinVspace" style={styles} width="79" height="58" />
+    <Image
+      src={src}
+      alt="EstinVspace"
+      className={styles.logo}
+      width="79"
+      height="58"
+    />
   );
 }
 

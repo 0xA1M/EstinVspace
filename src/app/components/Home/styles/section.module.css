@@ -32,6 +32,12 @@
   width: 60%;
 }
 
+.animationContainer {
+  width: 40%;
+  height: 100%;
+  background-color: red;
+}
+
 .sectionTitle {
   font-size: 141.2%;
   font-weight: bold;

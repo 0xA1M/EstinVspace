@@ -1,0 +1,10 @@
+.logo {
+  width: 5.7%;
+  height: auto;
+}
+
+@media only screen and (max-width: 1280px) {
+  .logo {
+    margin: 3%;
+  }
+}

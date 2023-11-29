@@ -24,7 +24,7 @@ function ThemeToggler() {
   };
 
   return (
-    <div className={styles.toggler}>
+    <div id="themeSwitcher" className={styles.toggler}>
       <input
         type="checkbox"
         name="darkMode"

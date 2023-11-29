@@ -1,6 +1,7 @@
 /* Defaults */
 .header {
   height: 4%;
+  width: 100%;
   padding: 2.343%;
   display: flex;
   align-items: center;
@@ -8,8 +9,6 @@
   background-color: var(--main-light-color);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
   position: fixed;
-  top: 0;
-  left: 0;
   z-index: 999;
 }
 
@@ -21,35 +20,10 @@
   top: -10%;
 }
 
-/* Burger Menu */
-
-/* .burger-menu {
-  display: none;
-  cursor: pointer;
-  font-size: 20px;
-  margin-top: 0.3rem;
+@media only screen and (max-width: 1280px) {
+  .header {
+    height: 10%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
-
-.burger-menu .meat {
-  width: 25px;
-  height: 3px;
-  background-color: var(--main-dark-color);
-  margin: 4px 0;
-  transition: 0.4s;
-  border-radius: 15px;
-}
-
-.burger-menu.active .meat:nth-child(1) {
-  transform: rotate(45deg);
-  transform-origin: 20% -100%;
-}
-
-.burger-menu.active .meat:nth-child(2) {
-  opacity: 0;
-}
-
-.burger-menu.active .meat:nth-child(3) {
-  transform: rotate(-45deg);
-  transform-origin: -10% 100%;
-}
- */

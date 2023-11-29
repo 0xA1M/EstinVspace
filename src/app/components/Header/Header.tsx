@@ -1,10 +1,9 @@
 "use client";
 /* Dependencies */
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 /* Components */
 import Logo from "./Logo";
-import ThemeToggler from "./ThemeToggler";
 import NavBar from "./NavBar";
 
 /* Assets */
@@ -48,7 +47,6 @@ function Header() {
     >
       <Logo />
       <NavBar />
-      <ThemeToggler />
     </header>
   );
 }

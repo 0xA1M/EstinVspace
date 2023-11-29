@@ -1,7 +1,5 @@
 /* Dark Mode Toggler */
 .toggler {
-  margin-right: 0.246%;
-  margin-left: -9.3%;
   font-size: 100%;
 }
 
@@ -46,4 +44,14 @@
 
 .checked .ball {
   transform: translateX(110%);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1280px) {
+  .toggler {
+    position: absolute;
+    top: 5%;
+    right: 8%;
+    transform: scale(1.2);
+  }
 }

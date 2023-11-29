@@ -16,7 +16,7 @@
   line-height: 100%;
   width: 100%;
   position: absolute;
-  top: 25%;
+  top: 23%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,9 +55,9 @@
   font-size: 200%;
   font-weight: 500;
   line-height: 120%;
-  padding: 0 11%;
+  padding: 0 10%;
   position: absolute;
-  top: 41%;
+  top: 43%;
 }
 
 [data-theme="dark"] .subTitle {

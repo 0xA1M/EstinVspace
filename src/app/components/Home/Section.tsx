@@ -46,6 +46,8 @@ function Section({
           </svg>
         </Link>
       </div>
+
+      <div className={styles.animationContainer}></div>
     </section>
   );
 }
