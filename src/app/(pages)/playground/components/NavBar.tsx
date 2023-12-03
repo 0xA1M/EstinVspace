@@ -1,27 +1,25 @@
+/* Dependencies */
 import Link from "next/link";
 
-function NavBar() {
-  const styles = {
-    color: "white",
-  };
+/* Assets */
+import styles from "./styles/navbar.module.css";
 
+function NavBar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link href="/playground/web" style={styles}>
-            FrontEnd Code
-          </Link>
+    <nav className={styles.mainNav}>
+      <ul className={styles.navItemList}>
+        <li className={styles.navItem}>
+          <Link href="/playground/web">FrontEnd Code</Link>
         </li>
-        <li>
-          <Link href="/playground/code" style={styles}>
+
+        <li className={styles.navItem}>
+          <Link href="/playground/" scroll={false}>
             Code Runner
           </Link>
         </li>
-        <li>
-          <Link href="/playground/linux" style={styles}>
-            Linux Terminal
-          </Link>
+
+        <li className={styles.navItem}>
+          <Link href="/playground/linux">Linux Terminal</Link>
         </li>
       </ul>
     </nav>

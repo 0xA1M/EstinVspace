@@ -1,4 +1,5 @@
 /* Components */
+import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 
 interface Params {
@@ -8,8 +9,13 @@ interface Params {
 function PlayGroundLayout({ children }: Params) {
   return (
     <>
-      <section>{children}</section>
+      <section>
+        <h1>Unleash Your Creativity in the Digital Realm</h1>
+        <Hero />
+      </section>
+
       <NavBar />
+      {children}
     </>
   );
 }
