@@ -1,4 +1,5 @@
 /* Dependencies */
+import Image from "next/image";
 import Link from "next/link";
 
 /* Assets */
@@ -11,6 +12,7 @@ interface Params {
   link: string;
   linkQuote: string;
   isSelfDev?: boolean;
+  vidSrc: string;
 }
 
 /* Sections of the Home */
@@ -20,6 +22,7 @@ function Section({
   link,
   linkQuote,
   isSelfDev = false,
+  vidSrc,
 }: Params) {
   return (
     <section className={`${styles.section} ${isSelfDev ? styles.selfdev : ""}`}>
@@ -47,7 +50,12 @@ function Section({
         </Link>
       </div>
 
-      <div className={styles.animationContainer}></div>
+      <div className={styles.animationContainer}>
+        <video className={styles.animation} loop={true}>
+          <source src={vidSrc} type="video/mp4" />
+          Your Browser doesn't support
+        </video>
+      </div>
     </section>
   );
 }

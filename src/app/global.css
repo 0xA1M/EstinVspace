@@ -64,6 +64,7 @@ main {
   align-items: center;
   transition: all 0.2s linear;
   overflow: hidden;
+  position: relative;
 }
 
 section {

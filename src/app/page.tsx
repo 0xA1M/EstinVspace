@@ -13,6 +13,7 @@ function Home() {
           TDs, and EMD from Various Sources to Elevate Your Academic Journey!"
         link="/academics"
         linkQuote="Study"
+        vidSrc="/videos/Render.mp4"
       />
       <Section
         title="Self Development"
@@ -20,12 +21,14 @@ function Home() {
         link="/selfdev"
         linkQuote="Improve"
         isSelfDev={true}
+        vidSrc="/videos/Main 1.mp4"
       />
       <Section
         title="Playground"
         description="Unleash your programming potential at the playground. Test your code with the built-in compiler, dive in, and embark on your coding journey today!"
         link="/playground"
         linkQuote="Play"
+        vidSrc="/videos/Render.mp4"
       />
     </>
   );
