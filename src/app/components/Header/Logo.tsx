@@ -33,6 +33,8 @@ function Logo() {
       src={src}
       alt="EstinVspace"
       className={styles.logo}
+      placeholder="blur"
+      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAD0lEQVR42mNkwAIYh7IgAAVVAAuInjI5AAAAAElFTkSuQmCC"
       width="79"
       height="58"
     />

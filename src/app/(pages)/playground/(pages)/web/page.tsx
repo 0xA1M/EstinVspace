@@ -38,8 +38,7 @@ function Web() {
     `;
 
     outputFrame.setAttribute("srcdoc", fullHTML);
-    outputFrame.setAttribute("sandbox", "allow-script");
-    outputFrame.setAttribute("referrerPolicy", "no-referrer");
+    outputFrame.setAttribute("sandbox", "allow-scripts allow-modals allow-same-origin");
   }, [html, css, js]);
 
   return (

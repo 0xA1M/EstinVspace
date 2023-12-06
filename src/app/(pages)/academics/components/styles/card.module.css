@@ -1,0 +1,8 @@
+.cardBody {
+  width: 100%;
+  height: 100%;
+}
+
+.moduleDetails a {
+  color: currentColor;
+}

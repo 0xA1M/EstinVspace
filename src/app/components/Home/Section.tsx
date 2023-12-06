@@ -51,7 +51,7 @@ function Section({
       </div>
 
       <div className={styles.animationContainer}>
-        <video className={styles.animation} loop={true}>
+        <video className={styles.animation} loop={true} autoPlay={true}>
           <source src={vidSrc} type="video/mp4" />
           Your Browser doesn't support
         </video>

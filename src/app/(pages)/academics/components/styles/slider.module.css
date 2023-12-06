@@ -1,0 +1,78 @@
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardsWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-left: 10%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card {
+  flex: 0 0 20%;
+  height: 100%;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  filter: blur(4px);
+  transition: filter 0.3s ease-in-out;
+}
+
+.card.active {
+  filter: none;
+}
+
+.cardDetails a {
+  color: currentColor;
+}
+
+.leftArrow,
+.rightArrow {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  transform: translateY(-50%) scale(1.15);
+}
+
+.leftArrow {
+  left: 6%;
+}
+
+.rightArrow {
+  right: 6%;
+}
+
+.hidden {
+  visibility: none;
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1280px) {
+  .leftArrow,
+  .rightArrow {
+    display: none;
+  }
+}
