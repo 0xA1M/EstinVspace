@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 import CodeEditor from "./components/CodeEditor";
 
@@ -12,7 +12,7 @@ function Playground() {
     setCode(code);
   };
 
-  const handleSelectLang = (event: any) => {
+  const handleSelectLang = (event: ChangeEvent<HTMLSelectElement>) => {
     setLang(event.target.value);
   };
 

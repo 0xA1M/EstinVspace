@@ -1,5 +1,4 @@
 /* Dependencies */
-import Image from "next/image";
 import Link from "next/link";
 
 /* Assets */
@@ -53,7 +52,7 @@ function Section({
       <div className={styles.animationContainer}>
         <video className={styles.animation} loop={true} autoPlay={true}>
           <source src={vidSrc} type="video/mp4" />
-          Your Browser doesn't support
+          Your Browser doesn&apos;t support
         </video>
       </div>
     </section>

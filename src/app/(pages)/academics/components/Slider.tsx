@@ -2,7 +2,7 @@
 /* Dependencies */
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 /* Assets */
 import styles from "./styles/slider.module.css";
@@ -25,7 +25,38 @@ function Slider({ modules, isVisible }: Params) {
     setVisibleCards([0, 1, 2, 3]);
   }, [isVisible]);
 
+  const shiftCards = useCallback(
+    (direction: "forward" | "backward") => {
+      const modulesLength = modules.length;
+      const cardsPerPage = 4;
+
+      let shiftIndex =
+        direction === "forward"
+          ? touchMove || touchStart
+            ? startIndex + cardsPerPage
+            : (startIndex + cardsPerPage) % modulesLength
+          : startIndex - cardsPerPage;
+
+      if (shiftIndex < 0) {
+        shiftIndex = 0;
+      } else if (shiftIndex > modulesLength - 4) {
+        shiftIndex = modulesLength - cardsPerPage;
+      }
+
+      const updatedVisibleCards: number[] = [];
+      for (let i = shiftIndex; i < shiftIndex + cardsPerPage; i++) {
+        updatedVisibleCards.push(i % modulesLength);
+      }
+
+      setVisibleCards(updatedVisibleCards);
+      setStartIndex(shiftIndex);
+    },
+    [modules.length, startIndex, touchStart, touchMove]
+  );
+
   useEffect(() => {
+    const sliderRefCur = sliderRef.current;
+
     const handleTouchMove = (e: TouchEvent) => {
       if (touchStart !== null) {
         setTouchMove(e.touches[0].clientX);
@@ -50,41 +81,15 @@ function Slider({ modules, isVisible }: Params) {
     }
 
     return () => {
-      if (sliderRef.current) {
-        sliderRef.current.removeEventListener("touchmove", handleTouchMove);
-        sliderRef.current.removeEventListener("touchend", handleTouchEnd);
+      if (sliderRefCur) {
+        sliderRefCur.removeEventListener("touchmove", handleTouchMove);
+        sliderRefCur.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, [touchStart, touchMove]);
+  }, [touchStart, touchMove, shiftCards]);
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchStart(e.touches[0].clientX);
-  };
-
-  const shiftCards = (direction: "forward" | "backward") => {
-    const modulesLength = modules.length;
-    const cardsPerPage = 4;
-
-    let shiftIndex =
-      direction === "forward"
-        ? touchMove || touchStart
-          ? startIndex + cardsPerPage
-          : (startIndex + cardsPerPage) % modulesLength
-        : startIndex - cardsPerPage;
-
-    if (shiftIndex < 0) {
-      shiftIndex = 0;
-    } else if (shiftIndex > modulesLength - 4) {
-      shiftIndex = modulesLength - cardsPerPage;
-    }
-
-    const updatedVisibleCards: number[] = [];
-    for (let i = shiftIndex; i < shiftIndex + cardsPerPage; i++) {
-      updatedVisibleCards.push(i % modulesLength);
-    }
-
-    setVisibleCards(updatedVisibleCards);
-    setStartIndex(shiftIndex);
   };
 
   const transformStyle = {
