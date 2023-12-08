@@ -11,9 +11,10 @@ import type { Modules } from "@/lib/module";
 interface Params {
   modules: Modules;
   isVisible: boolean;
+  reverseSlide: boolean;
 }
 
-function Slider({ modules, isVisible }: Params) {
+function Slider({ modules, isVisible, reverseSlide }: Params) {
   const [startIndex, setStartIndex] = useState<number>(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchMove, setTouchMove] = useState<number | null>(null);
@@ -22,8 +23,17 @@ function Slider({ modules, isVisible }: Params) {
 
   useEffect(() => {
     setStartIndex(0);
-    setVisibleCards([0, 1, 2, 3]);
-  }, [isVisible]);
+    setVisibleCards(
+      reverseSlide
+        ? [
+            modules.length - 4,
+            modules.length - 3,
+            modules.length - 2,
+            modules.length - 1,
+          ]
+        : [0, 1, 2, 3]
+    );
+  }, [isVisible, modules.length, reverseSlide]);
 
   const shiftCards = useCallback(
     (direction: "forward" | "backward") => {
@@ -31,7 +41,7 @@ function Slider({ modules, isVisible }: Params) {
       const cardsPerPage = 4;
 
       let shiftIndex =
-        direction === "forward"
+        direction === (reverseSlide ? "backward" : "forward")
           ? touchMove || touchStart
             ? startIndex + cardsPerPage
             : (startIndex + cardsPerPage) % modulesLength
@@ -39,23 +49,30 @@ function Slider({ modules, isVisible }: Params) {
 
       if (shiftIndex < 0) {
         shiftIndex = 0;
-      } else if (shiftIndex > modulesLength - 4) {
+      } else if (shiftIndex > modulesLength - cardsPerPage) {
         shiftIndex = modulesLength - cardsPerPage;
       }
 
-      const updatedVisibleCards: number[] = [];
-      for (let i = shiftIndex; i < shiftIndex + cardsPerPage; i++) {
-        updatedVisibleCards.push(i % modulesLength);
+      const updatedVisibleCards = [];
+      for (let i = 0; i < cardsPerPage; i++) {
+        const index = (shiftIndex + i) % modulesLength;
+        updatedVisibleCards.push(
+          reverseSlide ? modulesLength - index - 1 : index
+        );
       }
 
       setVisibleCards(updatedVisibleCards);
       setStartIndex(shiftIndex);
     },
-    [modules.length, startIndex, touchStart, touchMove]
+    [modules.length, startIndex, touchStart, touchMove, reverseSlide]
   );
 
   useEffect(() => {
     const sliderRefCur = sliderRef.current;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      setTouchStart(e.touches[0].clientX);
+    };
 
     const handleTouchMove = (e: TouchEvent) => {
       if (touchStart !== null) {
@@ -64,7 +81,7 @@ function Slider({ modules, isVisible }: Params) {
     };
 
     const handleTouchEnd = () => {
-      if (touchStart !== null && touchMove !== null && sliderRef.current) {
+      if (touchStart !== null && touchMove !== null && sliderRefCur) {
         const diff = touchStart - touchMove;
         if (Math.abs(diff) > 50) {
           const direction = diff > 0 ? "forward" : "backward";
@@ -75,33 +92,29 @@ function Slider({ modules, isVisible }: Params) {
       setTouchMove(null);
     };
 
-    if (sliderRef.current) {
-      sliderRef.current.addEventListener("touchmove", handleTouchMove);
-      sliderRef.current.addEventListener("touchend", handleTouchEnd);
+    if (sliderRefCur) {
+      sliderRefCur.addEventListener("touchstart", handleTouchStart);
+      sliderRefCur.addEventListener("touchmove", handleTouchMove);
+      sliderRefCur.addEventListener("touchend", handleTouchEnd);
     }
 
     return () => {
       if (sliderRefCur) {
+        sliderRefCur.removeEventListener("touchstart", handleTouchStart);
         sliderRefCur.removeEventListener("touchmove", handleTouchMove);
         sliderRefCur.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, [touchStart, touchMove, shiftCards]);
-
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setTouchStart(e.touches[0].clientX);
-  };
+  }, [shiftCards, touchStart, touchMove]);
 
   const transformStyle = {
-    transform: `translateX(-${startIndex * 22}%)`,
+    transform: reverseSlide
+      ? `translateX(-${(modules.length - 4 - startIndex) * 22}%)`
+      : `translateX(-${startIndex * 22}%)`,
   };
 
   return (
-    <div
-      className={styles.slider}
-      ref={sliderRef}
-      onTouchStart={handleTouchStart}
-    >
+    <div className={styles.slider} ref={sliderRef}>
       <div className={styles.cardsWrapper} style={transformStyle}>
         {modules.map((module, index) => (
           <article
@@ -116,7 +129,7 @@ function Slider({ modules, isVisible }: Params) {
               className={styles.cardImg}
             />
             <h3 className={styles.cardDetails}>
-              <Link href={module.link}>{module.name}</Link>
+              <Link href={""}>{module.name}</Link>
             </h3>
           </article>
         ))}
@@ -124,9 +137,17 @@ function Slider({ modules, isVisible }: Params) {
 
       <button
         className={`${styles.leftArrow} ${
-          startIndex === 0 ? styles.hidden : ""
+          reverseSlide ? "" : startIndex === 0 ? styles.hidden : ""
         }`}
-        onClick={() => shiftCards("backward")}
+        onClick={() => {
+          if (reverseSlide) {
+            shiftCards(
+              startIndex === modules.length - 4 ? "forward" : "backward"
+            );
+          } else {
+            shiftCards(startIndex === 0 ? "forward" : "backward");
+          }
+        }}
       >
         <svg
           width="100%"
@@ -145,8 +166,18 @@ function Slider({ modules, isVisible }: Params) {
         </svg>
       </button>
       <button
-        className={styles.rightArrow}
-        onClick={() => shiftCards("forward")}
+        className={`${styles.rightArrow} ${
+          reverseSlide ? (startIndex === 0 ? styles.hidden : "") : ""
+        }`}
+        onClick={() => {
+          if (reverseSlide) {
+            shiftCards(startIndex === 0 ? "backward" : "forward");
+          } else {
+            shiftCards(
+              startIndex === modules.length - 4 ? "backward" : "forward"
+            );
+          }
+        }}
       >
         <svg
           width="100%"

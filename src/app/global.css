@@ -13,6 +13,11 @@
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
   min-height: 100%;
   font-size: 100%;

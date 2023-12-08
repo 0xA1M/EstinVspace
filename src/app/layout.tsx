@@ -1,7 +1,6 @@
 /* Dependencies */
 import { Roboto } from "next/font/google";
 
-
 /* Components */
 import Providers from "./components/Providers";
 import Header from "./components/Header/Header";
@@ -9,7 +8,6 @@ import Footer from "./components/Footer/Footer";
 
 /* Assets */
 import "./global.css";
-
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -23,8 +21,6 @@ interface Params {
 
 /* Root Layout */
 function RootLayout({ children }: Params) {
-
-
   return (
     <html lang="en" className={roboto.className} suppressHydrationWarning>
       <body>

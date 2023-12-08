@@ -5,6 +5,7 @@
   align-items: center;
   overflow: hidden;
   position: relative;
+  outline: none;
 }
 
 .cardsWrapper {
@@ -25,14 +26,39 @@
   margin: 1rem;
   filter: blur(4px);
   transition: filter 0.3s ease-in-out;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card.active {
   filter: none;
 }
 
+.cardImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.cardDetails {
+  height: 20%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
 .cardDetails a {
   color: currentColor;
+  outline: none;
+  transition: font-size 0.2s ease-in-out;
+}
+
+.cardDetails a:hover {
+  font-size: 1.5rem;
 }
 
 .leftArrow,

@@ -1,6 +1,9 @@
 /* Dependencies */
 import Link from "next/link";
 
+/* Components */
+import Video from "./Video";
+
 /* Assets */
 import styles from "./styles/section.module.css";
 
@@ -11,7 +14,10 @@ interface Params {
   link: string;
   linkQuote: string;
   isSelfDev?: boolean;
-  vidSrc: string;
+  vidSrc: {
+    light: string;
+    dark: string;
+  };
 }
 
 /* Sections of the Home */
@@ -50,10 +56,7 @@ function Section({
       </div>
 
       <div className={styles.animationContainer}>
-        <video className={styles.animation} loop={true} autoPlay={true}>
-          <source src={vidSrc} type="video/mp4" />
-          Your Browser doesn&apos;t support
-        </video>
+        <Video vidSrc={vidSrc} />
       </div>
     </section>
   );

@@ -6,9 +6,17 @@ export type Module = {
 
 export type Modules = Module[];
 
+export type Specialty = {
+  specialtyName: string;
+  modules: Modules;
+};
+
+export type Specialties = Specialty[];
+
 export type Level = {
   level: string;
-  semesters: Modules[];
+  specialty?: boolean;
+  semesters: (Modules | Specialties)[];
 };
 
 export const Levels: Level[] = [
@@ -97,7 +105,7 @@ export const Levels: Level[] = [
       [
         {
           img: "",
-          name: "Analyse 3",
+          name: "Elecf 2",
           link: "https://google.com/",
         },
         {
@@ -166,6 +174,380 @@ export const Levels: Level[] = [
           img: "",
           name: "Analyse 4",
           link: "https://google.com/",
+        },
+      ],
+    ],
+  },
+  {
+    level: "1CS",
+    semesters: [
+      [
+        {
+          img: "",
+          name: "reseau",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+      ],
+      [
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 4",
+          link: "https://google.com/",
+        },
+      ],
+    ],
+  },
+  {
+    level: "2CS",
+    specialty: true,
+    semesters: [
+      [
+        {
+          img: "",
+          name: "Cloud",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+        {
+          img: "",
+          name: "Analyse 3",
+          link: "https://google.com/",
+        },
+      ],
+      [
+        {
+          specialtyName: "AI",
+          modules: [
+            {
+              img: "",
+              name: "Neural Networks",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+          ],
+        },
+        {
+          specialtyName: "CyberSec",
+          modules: [
+            {
+              img: "",
+              name: "CCNA",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+          ],
+        },
+      ],
+    ],
+  },
+  {
+    level: "3CS",
+    specialty: true,
+    semesters: [
+      [
+        {
+          specialtyName: "AI",
+          modules: [
+            {
+              img: "",
+              name: "Neural Networks",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+          ],
+        },
+        {
+          specialtyName: "CyberSec",
+          modules: [
+            {
+              img: "",
+              name: "CCNA",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+          ],
+        },
+      ],
+      [
+        {
+          specialtyName: "AI",
+          modules: [
+            {
+              img: "",
+              name: "Neural Networks",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+          ],
+        },
+        {
+          specialtyName: "CyberSec",
+          modules: [
+            {
+              img: "",
+              name: "CCNA",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+            {
+              img: "",
+              name: "Analyse 3",
+              link: "https://google.com/",
+            },
+          ],
         },
       ],
     ],

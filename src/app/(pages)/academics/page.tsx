@@ -9,7 +9,11 @@ function Academics() {
     <>
       <Hero />
 
-      <Level />
+      <Level levelName="1CP" />
+      <Level levelName="2CP" />
+      <Level levelName="1CS" />
+      <Level levelName="2CS" />
+      <Level levelName="3CS" />
     </>
   );
 }
