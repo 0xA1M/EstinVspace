@@ -25,8 +25,8 @@ function Home() {
         linkQuote="Improve"
         isSelfDev={true}
         vidSrc={{
-          light: "/videos/selfDevLight.mp4",
-          dark: "/videos/selfDevDark.mp4",
+          light: "",
+          dark: "",
         }}
       />
       <Section
@@ -35,8 +35,8 @@ function Home() {
         link="/playground"
         linkQuote="Play"
         vidSrc={{
-          light: "/videos/playgroundLight.mp4",
-          dark: "/videos/playgroundDark.mp4",
+          light: "",
+          dark: "",
         }}
       />
     </>

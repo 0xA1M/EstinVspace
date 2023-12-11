@@ -17,26 +17,7 @@ function Video({ vidSrc }: Params) {
 
   const videoSource = resolvedTheme === "light" ? light : dark;
 
-  useEffect(() => {
-    const videoElement = document.querySelector("video");
-
-    if (videoElement) {
-      switch (resolvedTheme) {
-        case "light":
-          videoElement.src = light;
-          break;
-        case "dark":
-          videoElement.src = dark;
-          break;
-        default:
-          break;
-      }
-    }
-  }, [resolvedTheme, light, dark]);
-
-  if (!light || !dark) {
-    return null;
-  }
+  console.log(resolvedTheme);
 
   return (
     <video

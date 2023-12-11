@@ -9,7 +9,7 @@ interface Params {
 
 /* Provide's theme toggling capabilities */
 function Providers({ children }: Params) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return <ThemeProvider enableSystem={false}>{children}</ThemeProvider>;
 }
 
 export default Providers;
