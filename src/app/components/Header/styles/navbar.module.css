@@ -323,7 +323,6 @@
 
 @media screen and (min-width: 1440px) {
   .item2 {
-    width: 12%;
     padding: 0.5% 1%;
     margin-right: -3.2%;
   }
@@ -373,5 +372,31 @@
   .activeLink.item4 ~ .navItemHighlighter {
     width: 4.75rem;
     left: 62%;
+  }
+}
+
+@media screen and (min-width: 1776px) {
+  .item2 {
+    margin-right: -4.2%;
+  }
+
+  .activeLink.item1 ~ .navItemHighlighter {
+    width: 7.6rem;
+    left: 29.1%;
+  }
+
+  .activeLink.item2 ~ .navItemHighlighter {
+    width: 6rem;
+    left: 39.1%;
+  }
+
+  .activeLink.item3 ~ .navItemHighlighter {
+    width: 7.6rem;
+    left: 48.2%;
+  }
+
+  .activeLink.item4 ~ .navItemHighlighter {
+    width: 4.75rem;
+    left: 58.2%;
   }
 }
