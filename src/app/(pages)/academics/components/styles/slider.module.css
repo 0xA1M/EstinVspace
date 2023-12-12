@@ -1,0 +1,104 @@
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+}
+
+.cardsWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-left: 10%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card {
+  flex: 0 0 20%;
+  height: 100%;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  filter: blur(4px);
+  transition: filter 0.3s ease-in-out;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card.active {
+  filter: none;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.cardDetails {
+  height: 20%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.cardDetails a {
+  color: currentColor;
+  outline: none;
+  transition: font-size 0.2s ease-in-out;
+}
+
+.cardDetails a:hover {
+  font-size: 1.5rem;
+}
+
+.leftArrow,
+.rightArrow {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.leftArrow:hover,
+.rightArrow:hover {
+  transform: translateY(-50%) scale(1.15);
+}
+
+.leftArrow {
+  left: 6%;
+}
+
+.rightArrow {
+  right: 6%;
+}
+
+.hidden {
+  visibility: none;
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1280px) {
+  .leftArrow,
+  .rightArrow {
+    display: none;
+  }
+}

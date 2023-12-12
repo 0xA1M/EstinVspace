@@ -1,0 +1,148 @@
+.level {
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+}
+
+.levelHeader {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  font-size: 1.5rem;
+}
+
+.togglersWrapper {
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.semesterToggler {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1.25rem;
+}
+
+.semesterToggler button {
+  width: 50%;
+  height: 70%;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px currentColor;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.semesterToggler button.active {
+  background: #2eb2fa;
+}
+
+.semesterToggler button:not(.active):hover {
+  transform: scale(1.1);
+}
+
+.specialtyWrapper {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1.25rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.specialtyWrapper button {
+  width: fit-content;
+  height: 70%;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px currentColor;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease-in-out;
+}
+
+.specialtyWrapper button.active {
+  background: #2eb2fa;
+}
+
+.specialtyWrapper button:not(.active):hover {
+  transform: scale(1.1);
+}
+
+.levelBody {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.leftSide,
+.rightSide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftSide {
+  transform: translateX(-100%);
+}
+
+.rightSide {
+  transform: translateX(100%);
+}
+
+.leftSide.active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.rightSide.active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  cursor: default;
+}
+
+.fade {
+  opacity: 0;
+}

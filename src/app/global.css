@@ -1,0 +1,99 @@
+/* Resets */
+:root {
+  --main-light-color: #fff;
+  --main-dark-color: #111;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  min-height: 100%;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--main-dark-color);
+  text-decoration: none;
+}
+
+input,
+button,
+textarea {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Styles */
+header,
+footer,
+main,
+article,
+aside,
+section {
+  display: block;
+  transition: all 0.2s ease-in-out;
+}
+
+main {
+  margin-top: 4.721%;
+  overflow: hidden;
+}
+
+section {
+  height: 100vh;
+}
+
+/* Styled Classes */
+.icon {
+  width: 130%;
+  height: 130%;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  background-color: var(--main-light-color);
+  color: var(--main-dark-color);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
+}
+
+[data-theme="dark"] header {
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
+}

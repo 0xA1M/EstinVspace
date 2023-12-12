@@ -1,6 +1,6 @@
 # EstinVspace
 
-![Light Theme Logo](src/assets/images/logo.svg)&nbsp;&nbsp;&nbsp;&nbsp;![Dark Theme Logo](src/assets/images/logo-light.svg)
+![Light Theme Logo](public/images/logo.svg)&nbsp;&nbsp;&nbsp;&nbsp;![Dark Theme Logo](public/images/logo-light.svg)
 
 ## Table of Contents
 
@@ -46,10 +46,10 @@ Before you can run this project, make sure you have the following software and t
 
 - [npm](https://www.npmjs.com/): npm is the Node.js package manager and comes bundled with Node.js. You'll need npm to install project dependencies.
 
-- [Vite](https://vitejs.dev/): This project is built using Vite, a fast build tool for web development. You can install Vite globally with npm:
+- [Next.js](https://nextjs.org/): This project is built using Next.js, a React framework. You can install Next.js globally with npm:
 
   ```bash
-  npm install -g create-vite
+  npm install -g next
   ```
 
 ### Installation
@@ -80,7 +80,7 @@ Before you can run this project, make sure you have the following software and t
    npm run dev
    ```
 
-6. Open your web browser and navigate to `http://localhost:5173` to access EstinVspace.
+6. Open your web browser and navigate to `http://localhost:3000` to access EstinVspace.
 
 ## Services
 

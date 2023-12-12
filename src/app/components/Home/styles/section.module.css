@@ -1,0 +1,83 @@
+/* Academics, SelfDev & Playground Sections */
+.section {
+  color: var(--main-dark-color);
+  font-size: 212.5%;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 141.2%;
+  padding: 5.857%;
+  display: flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .section {
+  color: var(--main-light-color);
+}
+
+.selfdev {
+  background-color: #f0f0f0;
+  flex-direction: row-reverse;
+}
+
+[data-theme="dark"] .selfdev {
+  background-color: #171717;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 6.634%;
+  width: 60%;
+}
+
+.animationContainer {
+  width: 40%;
+  height: 100%;
+}
+
+.animation {
+  width: 100%;
+  height: 100%;
+}
+
+.sectionTitle {
+  font-size: 141.2%;
+  font-weight: bold;
+  margin-bottom: 1.42%;
+}
+
+.sectionDescription {
+  font-weight: 400;
+  margin-bottom: 2.84%;
+}
+
+.link {
+  width: 100%;
+  font-size: 100%;
+  margin-top: 4.26%;
+  margin-bottom: -4.26%;
+  align-self: flex-end;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #111111;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+[data-theme="dark"] .link {
+  color: var(--main-light-color);
+}
+
+.linkIcon {
+  width: 4.828%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.link:hover .linkIcon {
+  transform: translateX(20%);
+}
