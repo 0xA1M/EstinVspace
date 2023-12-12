@@ -1,6 +1,6 @@
 /* Dark Mode Toggler */
 .toggler {
-  font-size: 100%;
+  font-size: 1rem;
 }
 
 .toggleDark {
@@ -29,11 +29,11 @@
 
 .ball {
   background-color: var(--main-light-color);
-  width: 1.375em; /* 22px */
-  height: 1.375em; /* 22px */
+  width: 1.38em; /* 22px */
+  height: 1.38em; /* 22px */
   position: absolute;
-  left: 1px;
-  top: 1px;
+  left: 2%;
+  top: 4.2%;
   border-radius: 50%;
   transition: all 0.2s linear;
 }
@@ -43,7 +43,7 @@
 }
 
 .checked .ball {
-  transform: translateX(110%);
+  transform: translateX(108%);
 }
 
 /* Responsive Design */
@@ -53,5 +53,22 @@
     top: 5%;
     right: 8%;
     transform: scale(1.2);
+  }
+}
+
+@media screen and (min-width: 1776px) {
+  .toggler {
+    font-size: 1.3rem;
+  }
+
+  .ball {
+    width: 1.44em;
+    height: 1.42em;
+    top: 5%;
+    left: 1.8%;
+  }
+
+  .checked .ball {
+    transform: translateX(102%);
   }
 }

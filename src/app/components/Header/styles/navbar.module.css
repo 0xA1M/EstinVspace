@@ -6,7 +6,7 @@
   align-items: center;
   position: relative;
   transition: all 0.2s ease-in-out;
-  font-size: 100%;
+  font-size: 1rem;
 }
 
 .navItemList {
@@ -14,13 +14,13 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 20.5%;
+  padding-left: 19.5%;
   gap: 3%;
   transition: all 0.35s ease-in-out;
 }
 
 .left {
-  transform: translateX(-6rem);
+  transform: translateX(-6em);
 }
 
 .activeLink {
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  margin: 0 0.2rem;
+  margin: 0 0.2em;
 }
 
 .item0 {
@@ -99,38 +99,38 @@
 }
 
 .navItemHighlighter {
-  height: 0.125rem;
+  height: 0.125em;
   position: absolute;
-  bottom: 0rem;
-  border-radius: 0.625rem;
+  bottom: 0em;
+  border-radius: 0.625em;
   background: linear-gradient(45deg, #1ecdf4, #ba06f9cf);
   transition: all 0.2s ease-in-out;
   box-shadow: 0px 0px 5px 0.2px #11111155;
 }
 
 .activeLink.item0 ~ .navItemHighlighter {
-  width: 5.25rem;
-  left: 21.5%;
+  width: 5.25em;
+  left: 20.5%;
 }
 
 .activeLink.item1 ~ .navItemHighlighter {
-  width: 8rem;
-  left: 31%;
+  width: 8em;
+  left: 30%;
 }
 
 .activeLink.item2 ~ .navItemHighlighter {
-  width: 6.4rem;
-  left: 38%;
+  width: 6.4em;
+  left: 43.2%;
 }
 
 .activeLink.item3 ~ .navItemHighlighter {
-  width: 8rem;
-  left: 50.2%;
+  width: 8.1em;
+  left: 54.6%;
 }
 
 .activeLink.item4 ~ .navItemHighlighter {
-  width: 4.9rem;
-  left: 62%;
+  width: 5em;
+  left: 68%;
 }
 
 .icon {
@@ -161,7 +161,7 @@
   transition: all 0.5s ease-in-out;
   opacity: 0;
   outline: none;
-  text-indent: 0.5rem;
+  text-indent: 0.5em;
   cursor: default;
 }
 
@@ -207,7 +207,7 @@
   display: none;
   cursor: pointer;
   font-size: 20px;
-  margin-top: 0.3rem;
+  margin-top: 0.3em;
 }
 
 .meat {
@@ -328,75 +328,79 @@
   }
 
   .activeLink.item0 ~ .navItemHighlighter {
-    width: 5rem;
+    width: 5em;
     left: 21.4%;
   }
 
   .activeLink.item1 ~ .navItemHighlighter {
-    width: 7.6rem;
+    width: 7.6em;
     left: 30%;
   }
 
   .activeLink.item2 ~ .navItemHighlighter {
-    width: 6rem;
+    width: 6em;
     left: 41.7%;
   }
 
   .activeLink.item3 ~ .navItemHighlighter {
-    width: 7.5rem;
+    width: 7.5em;
     left: 51.58%;
   }
 
   .activeLink.item4 ~ .navItemHighlighter {
-    width: 4.75rem;
+    width: 4.75em;
     left: 63.1%;
   }
 }
 
 @media screen and (min-width: 1600px) {
   .activeLink.item1 ~ .navItemHighlighter {
-    width: 7.6rem;
+    width: 7.6em;
     left: 29.8%;
   }
 
   .activeLink.item2 ~ .navItemHighlighter {
-    width: 6rem;
+    width: 6em;
     left: 41%;
   }
 
   .activeLink.item3 ~ .navItemHighlighter {
-    width: 7.5rem;
+    width: 7.5em;
     left: 50.87%;
   }
 
   .activeLink.item4 ~ .navItemHighlighter {
-    width: 4.75rem;
+    width: 4.75em;
     left: 62%;
   }
 }
 
 @media screen and (min-width: 1776px) {
+  .mainNav {
+    font-size: 1.35rem;
+  }
+
   .item2 {
-    margin-right: -4.2%;
+    margin-right: -2.2%;
   }
 
   .activeLink.item1 ~ .navItemHighlighter {
-    width: 7.6rem;
+    width: 7.6em;
     left: 29.1%;
   }
 
   .activeLink.item2 ~ .navItemHighlighter {
-    width: 6rem;
+    width: 6em;
     left: 39.1%;
   }
 
   .activeLink.item3 ~ .navItemHighlighter {
-    width: 7.6rem;
+    width: 7.6em;
     left: 48.2%;
   }
 
   .activeLink.item4 ~ .navItemHighlighter {
-    width: 4.75rem;
+    width: 4.75em;
     left: 58.2%;
   }
 }
