@@ -1,35 +1,59 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Terminal from "./components/Terminal";
+
+type Output = {
+  stdout?: string;
+  error?: string;
+  stderr?: string;
+};
 
 function LinuxTerminal() {
   const [code, setCode] = useState<string>("");
-  const [res, setRes] = useState<string>("");
+  const [output, setOutput] = useState<string>("!");
 
   const handleCodeChange = (code: string): void => {
     setCode(code);
   };
 
-  const runCode = async () => {
-    const res = await fetch("/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ code, lang: "bash" }),
-    });
-    const data = await res.json();
+  useEffect(() => {
+    const runCode = async () => {
+      if (code.trim() !== "") {
+        try {
+          const res = await fetch("/api", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ code, lang: "bash" }),
+          });
 
-    console.log(data);
-    setRes(data.stdout);
-  };
+          const data: Output = await res.json();
+
+          if (data.stdout) {
+            setOutput(data.stdout);
+          } else {
+            setOutput(
+              data.stderr?.split(":").slice(2).join(":").trim() || data.stderr!
+            );
+          }
+        } catch (error) {
+          throw new Error("Error fetching data:" + error);
+        }
+      }
+    };
+
+    runCode();
+  }, [code]);
 
   return (
     <>
       <h1>Linux Terminal</h1>
-      <Terminal code={code} onChange={handleCodeChange} />
-      <button onClick={runCode}>Run</button>
-      {res && <div className="output">{res}</div>}
+      <Terminal
+        onCodeChange={handleCodeChange}
+        output={output}
+        setOutput={setOutput}
+      />
     </>
   );
 }
